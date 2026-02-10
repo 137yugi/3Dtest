@@ -72,7 +72,7 @@ S-01 の MVP として、全画面地図、タグフィルタ、タグ色変更�
 
 ## Concrete Steps
 
-作業ディレクトリは `/Users/137yugi/Documents/New project`。
+作業ディレクトリは `/Users/137yugi/Documents/map-portal-3d`。
 
 1. 実装を追加した。
    - 追加ファイル: `index.html`, `styles.css`, `app.js`, `data/sample-data.js`, `README.md`。

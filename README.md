@@ -6,7 +6,7 @@
 
 作業ディレクトリ:
 
-    /Users/137yugi/Documents/New project
+    /Users/137yugi/Documents/map-portal-3d
 
 起動:
 
