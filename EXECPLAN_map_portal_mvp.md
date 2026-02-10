@@ -150,3 +150,5 @@ Update note (2026-02-10 / Codex): 追加依頼を反映し、3D初期表示・�
 Update note (2026-02-10 / Codex): globe投影を導入して地球儀表示に対応し、関連する判断ログを追記した。
 Update note (2026-02-10 / Codex): 地球表示不具合の原因をバージョン差異と特定し、MapLibre CDNを5系へ更新した。
 Update note (2026-02-10 / Codex): 公開要望に対応するため、GitHub Pages 自動デプロイ workflow を追加した。
+
+Update note (2026-02-10 / Codex): GitHub Pages 未有効時のデプロイ失敗に対応し、workflowへ enablement 設定を追加した。
