@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>地図可視化ポータル MVP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="dark">
+  <div id="app">
+    <div id="map" aria-label="地図"></div>
+
+    <button id="panel-open-mobile" class="floating-btn mobile-only" aria-label="フィルタを開く">フィルタ</button>
+
+    <aside id="side-panel" class="panel" aria-label="フィルタパネル">
+      <header class="panel-header">
+        <p class="eyebrow">Map Portal</p>
+        <h1>地図可視化ポータル</h1>
+        <button id="panel-close-mobile" class="text-btn mobile-only" aria-label="閉じる">閉じる</button>
+      </header>
+
+      <section class="panel-section">
+        <label for="search-input" class="section-label">検索</label>
+        <input id="search-input" list="search-options" type="search" placeholder="地名・企業名で検索">
+        <datalist id="search-options"></datalist>
+        <p id="search-hint" class="hint">候補を選ぶと地図が対象へ移動します。</p>
+      </section>
+
+      <section class="panel-section split">
+        <div>
+          <label for="filter-mode" class="section-label">タグ条件</label>
+          <select id="filter-mode">
+            <option value="OR">OR（いずれか一致）</option>
+            <option value="AND">AND（すべて一致）</option>
+          </select>
+        </div>
+        <label class="toggle-inline">
+          <input id="untagged-toggle" type="checkbox" checked>
+          <span>タグ未設定を表示</span>
+        </label>
+      </section>
+
+      <section class="panel-section">
+        <div class="panel-row">
+          <p class="section-label">タグフィルタ</p>
+          <div class="tag-actions">
+            <button id="all-on-btn" class="text-btn">すべて表示</button>
+            <button id="all-off-btn" class="text-btn">すべて非表示</button>
+          </div>
+        </div>
+        <div id="tag-list" class="tag-list"></div>
+      </section>
+
+      <section class="panel-section">
+        <p class="section-label">凡例</p>
+        <div id="legend" class="legend"></div>
+      </section>
+
+      <section class="panel-section">
+        <p class="section-label">GUI追加（タグ）</p>
+        <form id="tag-add-form" class="quick-form">
+          <input id="tag-add-name" type="text" placeholder="タグ名（例: 重点監視）" required>
+          <div class="inline-grid">
+            <input id="tag-add-group" type="text" placeholder="グループ（例: 運用）">
+            <input id="tag-add-color" type="color" value="#4ed0cf" aria-label="タグ色">
+          </div>
+          <button type="submit" class="control-btn add-submit-btn">タグを追加</button>
+        </form>
+        <p id="tag-add-result" class="hint"></p>
+      </section>
+
+      <section class="panel-section">
+        <p class="section-label">GUI追加（拠点ポイント）</p>
+        <form id="quick-add-form" class="quick-form">
+          <input id="add-name" type="text" placeholder="名称（例: 名古屋サテライト）" required>
+          <div class="inline-grid">
+            <select id="add-type">
+              <option value="site">拠点</option>
+              <option value="municipality">自治体（点）</option>
+              <option value="area">エリア中心点</option>
+            </select>
+            <select id="add-scope">
+              <option value="japan">日本表示</option>
+              <option value="world">世界表示</option>
+            </select>
+          </div>
+          <div class="inline-grid">
+            <input id="add-lng" type="number" step="0.000001" placeholder="経度 (lng)" required>
+            <input id="add-lat" type="number" step="0.000001" placeholder="緯度 (lat)" required>
+          </div>
+          <textarea id="add-description" rows="2" placeholder="説明（任意）"></textarea>
+          <input id="add-partner-name" type="text" placeholder="関連企業名（任意）">
+          <div id="add-tag-selectors" class="checkbox-grid"></div>
+          <button type="submit" class="control-btn add-submit-btn">地図へ追加</button>
+        </form>
+        <p id="add-result" class="hint"></p>
+      </section>
+
+      <footer class="panel-footer">
+        <span id="result-count">0 件表示</span>
+      </footer>
+    </aside>
+
+    <div class="map-controls" aria-label="地図操作">
+      <button id="scope-world-btn" class="control-btn is-active" data-scope="world">世界</button>
+      <button id="scope-japan-btn" class="control-btn" data-scope="japan">日本</button>
+      <button id="view3d-btn" class="control-btn">2D</button>
+      <button id="theme-toggle-btn" class="control-btn">ダーク</button>
+      <button id="zoom-in-btn" class="control-btn">拡大 +</button>
+      <button id="zoom-out-btn" class="control-btn">縮小 -</button>
+    </div>
+
+    <aside id="detail-panel" class="detail-panel" aria-label="詳細パネル">
+      <header class="detail-header">
+        <h2>詳細</h2>
+        <button id="detail-close-btn" class="text-btn">閉じる</button>
+      </header>
+      <div id="detail-content" class="detail-content">
+        <p class="hint">地図上の国・地域・拠点をクリックすると詳細を表示します。</p>
+      </div>
+    </aside>
+  </div>
+
+  <script src="https://unpkg.com/maplibre-gl@5.6.0/dist/maplibre-gl.js"></script>
+  <script src="data/sample-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
