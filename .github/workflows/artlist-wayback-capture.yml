@@ -1,0 +1,60 @@
+name: Artlist Wayback evidence capture
+
+on:
+  workflow_dispatch:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  contents: write
+  issues: read
+
+jobs:
+  capture:
+    if: github.event_name == 'workflow_dispatch' || startsWith(github.event.issue.title, '[RUN WAYBACK CAPTURE]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Check out public evidence branch
+        uses: actions/checkout@v4
+        with:
+          ref: artlist-evidence-2026
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Playwright
+        run: |
+          npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+
+      - name: Query Wayback APIs and capture screenshots
+        run: npm run capture:wayback
+
+      - name: Upload immutable evidence bundle
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: artlist-wayback-evidence-${{ github.run_id }}
+          path: archive-results/
+          if-no-files-found: warn
+          retention-days: 90
+
+      - name: Commit evidence back to public branch
+        if: always()
+        run: |
+          if [ ! -d archive-results ]; then
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add archive-results package-lock.json
+          if git diff --cached --quiet; then
+            echo 'No capture changes to commit.'
+            exit 0
+          fi
+          git commit -m "Preserve Artlist Wayback evidence from run $GITHUB_RUN_ID"
+          git push origin HEAD:artlist-evidence-2026
