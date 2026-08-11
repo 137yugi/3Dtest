@@ -1,0 +1,37 @@
+[
+  {
+    "id": "seedance-model-page",
+    "label": "Artlist Seedance 2.5 model page",
+    "url": "https://artlist.io/ai/models/seedance-2-5",
+    "dates": ["20260806", "20260807", "20260808", "20260809", "20260810", "20260811"],
+    "keywords": ["included in Unlimited plans", "isn't part of the Unlimited plan", "Reference-to-Video", "Unlimited"]
+  },
+  {
+    "id": "seedance-launch-blog",
+    "label": "Artlist Seedance 2.5 launch blog",
+    "url": "https://artlist.io/blog/seedance-2-5-on-artlist-the-ai-video-model-moving-the-needle/",
+    "dates": ["20260806", "20260807", "20260808", "20260809", "20260810", "20260811"],
+    "keywords": ["Unlimited", "30 seconds", "50 references", "Updated"]
+  },
+  {
+    "id": "seedance-help-article",
+    "label": "Artlist Help Center Seedance 2.5 article",
+    "url": "https://help.artlist.io/hc/en-us/articles/38194082501021-Seedance-2-5",
+    "dates": ["20260806", "20260807", "20260808", "20260809", "20260810", "20260811"],
+    "keywords": ["Reference-to-Video", "R2V", "50 reference inputs", "credits"]
+  },
+  {
+    "id": "ai-suite-plans",
+    "label": "Artlist Help Center AI Suite plans article",
+    "url": "https://help.artlist.io/hc/en-us/articles/29558520864541-The-AI-Suite-plans-explained",
+    "dates": ["20260806", "20260807", "20260808", "20260809", "20260810", "20260811"],
+    "keywords": ["Purchase", "standard rate", "next renewal", "upgrade"]
+  },
+  {
+    "id": "terms-of-use",
+    "label": "Artlist Terms of Use",
+    "url": "https://artlist.io/help-center/privacy-terms/terms-of-use/",
+    "dates": ["20260701", "20260806", "20260807", "20260808", "20260809", "20260810", "20260811"],
+    "keywords": ["Amendments to these Terms", "subscription plans", "next billing cycle", "Unlimited Plan"]
+  }
+]
