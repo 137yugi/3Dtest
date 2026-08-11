@@ -1,0 +1,65 @@
+name: Capture Wayback evidence
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - artlist-evidence-2026
+    paths:
+      - '.github/workflows/wayback-capture.yml'
+      - 'research/**'
+      - 'package.json'
+  schedule:
+    - cron: '17 2 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out evidence branch
+        uses: actions/checkout@v4
+        with:
+          ref: artlist-evidence-2026
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Playwright
+        run: |
+          npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+
+      - name: Query Wayback APIs and capture screenshots
+        run: npm run capture:wayback
+
+      - name: Upload immutable capture bundle
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: artlist-wayback-evidence-${{ github.sha }}
+          path: archive-results/
+          if-no-files-found: warn
+          retention-days: 90
+
+      - name: Commit public evidence files to branch
+        if: always()
+        run: |
+          if [ ! -d archive-results ]; then
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add archive-results package-lock.json
+          if git diff --cached --quiet; then
+            echo 'No capture changes to commit.'
+            exit 0
+          fi
+          git commit -m "Preserve Wayback evidence capture for $GITHUB_SHA"
+          git push origin HEAD:artlist-evidence-2026
