@@ -1,0 +1,453 @@
+Skip to main content
+Help Center
+License & Terms
+Go to Artlist
+Artlist Blog
+Artlist
+ Subscriptions and Plans
+ AI Plans
+Table of Contents
+What license is included?
+What do the AI Suite plans include?
+What plans are available?
+How Unlimited Generations Work
+How Fast Generations Work
+How Parallel Generations Work
+How many AI credits are included for voiceover, image, video, music generation, and Artlist Studio?
+Which models are Unlimited?
+What upgrade options are available?
+Commonly asked questions
+Was this article helpful?
+Yes
+No
+The AI Suite plans explained
+13 min read
+
+The AI Suite is Artlist’s all-in-one solution that combines powerful AI tools to streamline your creative workflow. With AI Suite you can generate AI voiceovers, images and videos using a variety of language and styles. From smart search to automated asset curation, this plan helps you find, organize, and use content faster and more efficiently, so you can focus on creating. This article will summarize what the plan includes and what license it comes with.
+
+Subscribe now
+
+What license is included?
+
+The AI Suite plans come with a Pro license. This allows you to use AI generated assets in your video projects on any platform worldwide including social media, TV, films, streaming, and broadcast, including ads, commercial and client work.
+
+What do the AI Suite plans include?
+
+Team members:  Any new subscription with 180,000 AI credits or more, or subscription that upgrades to 180,000 AI credits or more, will receive 5 free team members. Learn more about managing a team here.
+
+Artlist Studio: Create your next project with a complete AI video production platform that gives you visual control over every stage of creation. 
+
+Cast characters
+Build locations
+Frame scenes
+Direct shots
+
+AI Voice Catalog: Browse and preview a selection of voices, filtering by video category and gender. Learn more.
+
+Language Selection: Choose the language for your text input
+
+Text to Speech: Generate professional voiceover from a text in Artlist's Toolkit. Enter up to 5,000 characters per generation
+
+Custom Voices: Generate a personalized voice model based on a recorded audio sample in Artlist's Toolkit
+
+Speech to Speech: Transform your own recordings with AI models
+
+Customization Options (model dependent):
+
+Accent: For English, select from American, Australian, British, or Indian accents
+Speed: Adjust the speech speed between 0.8x to 1.2x
+Stability: Control how expressive or stable the voice sounds. Lower stability makes the voice more expressive and less consistent across generations.
+Effects: Add effects such as ‘walkie-talkie’ to your voiceover
+Emotion: Add emotions such as ‘upset’ to your voiceover
+
+Manage your voiceovers: Options to download, rename, delete, or favorite voiceovers are available.
+
+Image Generation : Enter a clear prompt to generate an AI image or upload an image to enhance or transform it with AI in Artlist's Toolkit
+
+Customization Options (model dependent):
+
+AI Model
+Aspect Ratio
+Number of image outputs
+Resolution
+Negative prompt
+Style
+Background
+
+Video Generation:  Upload or select images to generate an AI video or turn text descriptions into short, cinematic clips in Artlist's Toolkit
+
+Customization Options (model dependent):
+
+Image Size
+AI video model
+Length of video 
+Resolution
+Audio
+Negative Prompt
+Guidance scale
+
+Music Generation: Enter a detailed prompt to create original tracks, and/or upload an image  to transform it into a unique music track in Artlist's Toolkit
+
+Customization Options: 
+
+Duration
+Vocals
+Genre
+Mood
+Video Theme
+Tempo
+Artlist Sound
+
+Generation Sessions: Options to download, delete, reuse prompt and settings, or favorite AI Images and Videos are available.
+
+Artboards: Keep all your project assets in one place! Add a description and let Artboards use AI to curate and suggest assets from across all catalogs.
+
+Team members:  
+
+Team member access depends on your AI Suite subscription tier:
+
+AI Professional plans and AI Pro Plus plans include 3 team members.
+
+Learn more about managing a team here.
+
+Note: AI users also have access to watermarked music and footage.
+
+What plans are available?
+
+There are three AI Suite plans. The AI Starter plan, AI Creator Plan, and AI Professional plan. All plans are available yearly or monthly and come with credits that allow you to access Artlist Studio and create voiceovers, images, videos, and music on Artlist’s Toolkit.
+
+Each subscription plan includes a fixed number of credits, and fast and parallel generations per month(tier dependent), which reset each month on the date of credit renewal. Unused credits and fast generations do not carry over into the next month's renewal.  Whenever you generate AI content - whether it’s voiceover, image, video, or music, credits are deducted based on the specific tool and settings used. Learn more.
+
+How Unlimited Generations Work
+
+Unlimited gives you the freedom to create with selected models without worrying about credits. It’s designed to help you stay in your creative flow and iterate freely subject to reasonable use, daily usage thresholds per account, and the restrictions described below.
+
+No credit deductions: Generate on supported models without deducting from your credit balance.
+Continuous access: Keep creating on supported models even after your credits run out, unless reasonable use limits, daily usage thresholds, which may vary by selected AI model, service-performance protections, or misuse restrictions apply. 
+How Fast Generations Work
+
+Every month, you get a fixed number of top-priority fast generations, depending on your plan. Once your fast generations run out, you still have unlimited access, generations simply process at standard speed.
+
+How Parallel Generations Work
+
+Parallel generations determine how many image and video assets a single user can create at the same time in Unlimited mode. Your plan includes a set limit (e.g., 8, 10, or 12) on how many assets you can generate at once. Once you reach the maximum number of parallel generations, you will be unable to generate until another asset finishes loading. 
+
+How many AI credits are included for voiceover, image, video, music generation, and Artlist Studio?
+ 
+
+AI Starter Plans 
+
+7,500 credits per month 
+Up to 1.5 hours of AI voiceover
+ 
+
+16,500 credits per month
+
+Up to  412AI videos
+
+Up to 1650 AI images
+
+Up to 3 hours of AI voiceover
+
+Up to 110 music tracks
+
+Up to 38 cinematic shots with Studio
+
+ 
+
+40,000 credits per month 
+Up to 1,000 AI videos
+
+Up to 4,000 AI images
+
+Up to 8 hours of AI voiceover
+
+Up to 266 music tracks
+
+Up to 93 cinematic shots with Studio
+
+
+AI Creator Plans
+
+80,000 credits per month
+
+Unlimited generation on select models (yearly plan only)
+
+900 fast generations per month (yearly plan only)
+
+5 parallel generations can be processed simultaneously (yearly plan only)
+
+Up to 2,000 AI videos
+
+Up to 8,000 AI images
+
+Up to 16 hours of AI voiceovers
+
+Up to 533 AI songs
+
+Up to 186 cinematic shots in Artlist Studio
+
+ 
+
+180,00 credits per month
+
+Unlimited generation on select models (yearly plan only)
+
+900 fast generations per month (yearly plan only)
+
+5 parallel generations can be processed simultaneously (yearly plan only)
+
+Up to 4,500 AI videos 
+
+Up to 18,000 AI images
+
+Up to 36 hours of AI voiceover time  
+
+Up to 1,200 music tracks
+
+Up to 279 cinematic shots with Studio
+
+
+240,000 credits per month
+
+Unlimited generation on select models (yearly plan only)
+
+900 fast generations per month (yearly plan only)
+
+5 parallel generations can be processed simultaneously (yearly plan only)
+
+Up to 6,000 AI videos
+
+Up to 24,000 AI images
+
+Up to 48 hours of AI voiceover time
+
+Up to 1,600 music tracks
+
+Up to 558 cinematic shots with Studio
+
+ 
+
+AI Professional Plans with 3 free team members. 
+
+500,000 credits per month
+
+Unlimited generation on select models  
+
+4,000 fast generations per month 
+
+8 parallel generations can be processed simultaneously
+
+Up to 12,500 AI videos
+
+Up to 50,000 AI images
+
+Up to 100 hours of AI voiceover
+
+Up to 3,333 music tracks
+
+Up to 1,162 cinematic shots with Studio
+
+ 
+
+1,000,000 credits per month
+
+Unlimited generation on select models 
+
+4,000 fast generations per month 
+
+8 parallel generations can be processed simultaneously
+
+Up to 25,000 AI videos
+
+Up to 100,333 AI images
+
+Up to 200 hours of AI voiceover time
+
+Up to 6,666 music tracks 
+
+Up to 2,325 cinematic shots with Studio
+
+
+1,500,000 credits per month
+
+Unlimited generation on select models 
+
+4,000 fast generations per month 
+
+8 parallel generations can be processed simultaneously
+
+Up to 37,500 AI videos
+
+Up to 150,000 AI images
+
+Up to 300 hours of AI voiceovers
+
+Up to 10,000 AI songs
+
+Up to 3,488 cinematic shots in Artlist Studio
+
+
+Any new subscription with 500,000 AI credits or more, or subscription that upgrades to 500,000 AI credits or more, will receive 3 free team members. Learn more about managing a team here.
+
+Payment options: These plans are billed monthly or annually. You can purchase via credit card, google pay or PayPal. Subscribe now.
+
+Which models are Unlimited?
+
+Unlimited models are specified according to which Plan tier you have. Check out our article for Toolkit here and our Article for Studio here.
+
+What upgrade options are available?
+
+With an AI Starter you upgrade to increase your credit tier to:
+
+AI Starter 16,500 credits  
+
+AI Stater 40,000 credits  
+
+
+Or - upgrade to AI creator
+
+AI Creator 80,000 credits
+
+AI Creator 180,000 credits
+
+AI Suite 240,000 credits 
+
+
+Or - upgrade to AI Professional with 3 free team members
+
+AI Suite 500,000 credits 
+
+AI Suite 1 million credits
+
+AI Suite 1.5 million credits
+
+ 
+
+Or- upgrade to AI Pro Plus Plans with 3 free team members
+
+Unlimited generation on select models 
+
+5,000 fast generations per month 
+
+12 parallel generations can be processed simultaneously
+
+ 
+
+AI Suite 2 million credits 
+
+AI Suite 3 million credits 
+
+AI Suite 4 million credits 
+
+AI Suite 5 million credits 
+
+AI Suite 6 million credits  
+
+AI Suite 7 million credits 
+
+AI Suite 8 million credits 
+
+AI Suite 9 million credits 
+
+AI Suite 10 million credits
+
+Any new subscription with 500,000 AI credits or more, or subscription that upgrades to 500,000 AI credits or more, will receive 3 free team members. Learn more about managing a team here. 
+
+When upgrading, you have access to the next 3 tiers above the subscription that you currently have.
+
+You can upgrade as many times as you like until you reach the highest tier, or contact us for help. If you require more than the highest tier, an Enterprise plan may better fit your needs. For more information about a customized solution, contact our Enterprise team.
+
+When you upgrade:
+ 
+The number of credits in the package are the total that you will receive per month.
+For example, if you upgrade from the 40,000 credit package to 240,000 credit package your total credit amount per month will be 240,000.
+Credits and fast generations don’t roll over. Used credits are deducted from the total amount.
+For example, if you used 1,000 credits before your upgrade to 240,000 monthly credits, you will receive 239,000 credits out of 240,000 credits.
+
+If you upgrade from a monthly plan to a higher-tier monthly plan, or from a yearly plan to a higher-tier yearly plan, your renewal date stays the same as your original purchase date.
+
+If you upgrade from a monthly plan to a yearly plan, the yearly plan starts immediately, and your renewal date resets to the upgrade date.
+
+Note: For all upgrades, you pay the full price minus your balance from your current plan.  On your next renewal you’ll be charged the standard rate for the plan you upgraded too.
+
+
+Upgrading from monthly to annual billing cycle:
+
+To upgrade your subscription from monthly to yearly:
+Log in to your Artlist account.
+Navigate to your Subscription under your Profile settings.
+Click Upgrade to get more credits.
+Select “Annual’. You will be shown how much the upgrade will cost
+
+Purchase, and the billing cycle will be updated immediately.
+
+ 
+
+All AI Suite Plans that want to add Stock can upgrade to:
+
+Artlist Max - adds Music & SFX, Music stems, Footage - HD, 4K-8K, ProRes/DNxHR, Templates, Plugins and LUTs.
+
+Artlist Max RAW/LOG - adds RAW or LOG footage in addition to HD, 4K–8K and ProRes/DNxHR formats
+
+At any point in your subscription period you can always upgrade to Max.
+
+On the homepage, click Stock Catalog.
+Click the Upgrade to Max on the upper-right side.
+
+Complete the Checkout page.
+Commonly asked questions
+How do I upgrade to get more credits?
+
+To upgrade your credits:
+
+Log in to your Artlist account.
+Navigate to My Account under your Profile settings.
+Under Overview, click Upgrade to get more credits.
+Select the credit amount you want.
+Purchase, and the credits will be upgraded immediately.
+
+ 
+
+What happens to my credits when I upgrade?
+
+When you upgrade, your monthly credit limit changes to match the new plan. Your new plan’s total credit limit applies right away. Any credits you already used in the current billing cycle are deducted from that new limit (it doesn’t “stack” a fresh full bundle on top).  For example, if you used 1,000 credits before your upgrade to 240,000 monthly credits, you will receive 239,000 credits out of 240,000 credits. Your full credit limit refreshes on your next renewal date. You’ll be charged a prorated amount for the rest of the current cycle, then the full new plan price at the next renewal. 
+
+I am on the 500,000 credit plan and want to upgrade to 5 million credits, but I am not seeing the 5 million credit option in the upgrade. Why not?
+
+When upgrading, you can only see and select from the next 3 tiers above your current plan.
+Since you’re on the 500,000-credit plan, the available upgrade options are the 1 million, 1.5 million, and 2 million.
+
+To reach the 5 million credit plan, you’ll first need to upgrade to the 2 million credit plan. Once that upgrade is complete, the 5 million credit option will become available.
+
+Can I purchase additional AI credits as a one off?
+
+Generally, you are unable to purchase additional AI credits as a one-off. To increase your limit, you can upgrade to a higher credit package, which will adjust your monthly or yearly plan and apply the new credit allowance moving forward.
+
+Exception for High-Tier Plans: If you are currently on the AI Suite 80,000  plan or above, you do have the option to purchase one-off top-up credits as needed and usable immediately on successful payment.
+
+Note: Unlike your standard plan allowance, these one-off top-up credits will expire 30 days after the date of purchase.
+
+Where can I see my renewal cost after an upgrade?
+
+On your next renewal you’ll be charged the standard rate for the plan you upgraded too. When upgrading, you will see the renewal cost in the disclaimer on the checkout page. 
+
+Where can I find out more information on AI voiceover?
+
+You can find more information on AI voiceover here.
+
+I am interested in the AI Creator monthly plan. Will I have access to Unlimited?
+
+No. To access unlimited you need to have an AI Creator yearly plan.
+
+Do unused credits and fast generations roll over to the next month?
+
+AI credits and fast generations do not roll over from month to month. Monthly credits reset at the beginning of each monthly credit cycle.
+
+Is there a benefit to choosing the yearly plan over monthly?
+
+The benefit of choosing a yearly plan over a monthly plan is overall cost. The yearly plan will be more cost efficient in the long run.
+
+Still need help? Head back to the Help Center.
+
+Ⓒ 2026 All Rights Reserved

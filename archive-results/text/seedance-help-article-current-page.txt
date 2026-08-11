@@ -1,0 +1,81 @@
+Skip to main content
+Help Center
+License & Terms
+Go to Artlist
+Artlist Blog
+Artlist
+ AI Toolkit
+ AI Models
+Table of Contents
+Variants at a Glance
+Key Features
+Technical Capabilities
+Limitations
+Prompting Tips
+Was this article helpful?
+Yes
+No
+Seedance 2.5
+5 min read
+
+Video Model — text, image & multimodal-to-video
+
+Seedance 2.5 is ByteDance's next-generation video model, succeeding Seedance 2.0 as its top contender alongside Veo and Kling. Its headline is native 30-second generation in a single pass (from 4–30 seconds).
+
+Reference control is the other jump: up to 50 multimodal inputs per request, up from 12 — images, video, and audio, each assigned a job in the prompt. The same reference stack drives generation, editing, and extension. Audio is co-generated in the same generation as the visuals, so dialogue, music, and effects land in sync. Prompt adherence is roughly 20% better than 2.0.
+
+Parallel (simultaneous) generations
+
+Each plan tier has a concurrency limit that applies whether you're generating with credits. Upgrading to a higher tier raises this limit.
+
+API / MCP integrations
+
+Generations made through the Artlist MCP integration (e.g., via Claude) always use credits. There's currently no setting to change this.
+
+Variants at a Glance
+	Type	Modalities	Max Res.	Talking Points
+2.5 (new)	Video gen / edit / extend	T2V, I2V, first & last frame, multimodal refs (image / video / audio)	720p	Native 30s single pass, no stitching; up to 50 reference inputs (30 img / 10 vid / 10 aud); timestamped video editing; forward, backward & bridge extension; native audio co-generation; ~20% better prompt adherence
+2.0	Video gen / edit / extend	T2V, I2V (+ audio / video refs)	4K	Caps at 12 reference inputs; shorter native duration ceiling; live on Artlist today
+Key Features
+Generation Modes
+Text-to-Video (T2V): Generate video from a text prompt
+Image-to-Video (I2V): Text prompt plus a first-frame image
+Reference-to-Video (R2V): Upload up to 50 reference inputs (up to 30 images, 10 video clips, and 10 audio clips) to guide generation — use them to define subjects, background, style, camera movement, or soundtrack. 
+First & Last Frame: Text prompt plus first-frame and last-frame images; if the two aspect ratios differ, the first frame wins and the last frame is auto-cropped
+Native 30s in one pass: A full 30-second clip is generated in a single pass — no stitching, no scene-cut splicing, no seams
+Multi-shot generation: Generate several shots with cuts between them from a single prompt
+Multimodal reference generation: Feed image, video, and audio references and specify in the prompt what each is for — subject, background, composition, style, camera movement, motion, dialogue, music, or SFX.
+Editing & Extension
+Video editing: Replace subjects, add / remove / modify elements, or locally redraw regions — driven by reference materials plus the prompt
+Timestamped edits: Scope a change to a time window — "replace 0:02–0:05" — leaving the rest of the clip untouched
+Forward extension: Continue a clip on from its last frame, holding style, rhythm, and camera logic
+Backward extension: Generate the moment before a clip, using its first frame as the endpoint
+Seamless bridge: Take two clips and generate the missing transition between them
+Task-type intelligence: The model infers the task (generate / edit / extend) from the prompt. Duration semantics differ: generate and edit = total output; extend = the extended portion only
+Smart Controls
+Adaptive aspect ratio: Industry-exclusive — T2V picks the best ratio from the prompt; first-frame tasks match the input image; multimodal reference picks from the first recognized media file (video over image)
+Smart Duration: The model can pick an appropriate length in the 2–30s range
+Prompt adherence: Roughly 20% better than 2.0 — fewer generations before a usable result
+Technical Capabilities
+Duration	Any integer 4–30s per clip, generated natively in a single pass. Smart Duration (-1) auto-picks 4–15s.
+Resolution & color	720p at 24 FPS. 10-bit color depth.
+Aspect ratios	16:9, 9:16, 4:3, 3:4, 1:1, 21:9, or Adaptive (model chooses). If a specified ratio differs from an uploaded image's, the image is center-cropped.
+Reference inputs	Up to 50 total = 30 images + 10 videos + 10 audio clips. Images: 0–30, up to 4K each. Videos: 0–10, up to 4K each, 2–30s per clip, total under 30s. Audio: 0–10, 2–30s per clip, total under 30s. Video and audio totals are counted separately.
+Audio	Native — co-generated in the same latent space as visuals; audio references can drive dialogue, music, and SFX.
+Spoken languages	English, Chinese, Spanish, Indonesian, Malay, Thai, Arabic, Portuguese, Vietnamese, Japanese, Korean.
+Limitations
+Single clip is capped at 30s — long-form still needs to be assembled from multiple generations
+720p / 24 FPS and 10-bit color are not yet confirmed for our integration
+Reference video and reference audio are each capped at 30s total per request (each file 2–30s)
+If a specified aspect ratio differs from an uploaded image's, the image is center-cropped; in first & last frame mode a mismatched last frame is auto-cropped
+The ~20% prompt adherence gain is a vendor-stated figure, not something we've benchmarked
+Pre-release — treat every number here as provisional
+Prompting Tips
+State clearly in the prompt which reference materials to use and for what — subject vs style vs motion vs audio — the model follows your assignments
+With 50 reference slots available, be deliberate rather than exhaustive: a few well-labelled references beat a pile of unlabelled ones
+Use Adaptive aspect ratio for text-to-video when the target placement is unknown — the model picks the best ratio from the prompt
+Set an explicit duration when output length matters; Smart Duration (-1) decides for you
+For first & last frame generation, match the aspect ratios of both images — otherwise the last frame is auto-cropped to fit the first
+For edits, give a timestamp range to scope the change and add "keep everything else unchanged" so the model doesn't touch unrelated areas
+Describe the audio you want in the prompt — dialogue, music, and SFX are co-generated with the visuals, not added in a separate pass
+Ⓒ 2026 All Rights Reserved

@@ -1,0 +1,23 @@
+{
+  "requestedUrl": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fartlist.io%2Fblog%2Fseedance-2-5-on-artlist-the-ai-video-model-moving-the-needle%2F&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&from=20260701&to=20260811&collapse=digest",
+  "checkedAt": "2026-08-11T07:54:34.981Z",
+  "httpStatus": 503,
+  "finalUrl": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fartlist.io%2Fblog%2Fseedance-2-5-on-artlist-the-ai-video-model-moving-the-needle%2F&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&from=20260701&to=20260811&collapse=digest",
+  "responseHeaders": {
+    "cache-control": "no-cache",
+    "connection": "keep-alive",
+    "content-length": "107",
+    "content-type": "text/html",
+    "date": "Tue, 11 Aug 2026 07:54:34 GMT",
+    "permissions-policy": "interest-cohort=()",
+    "referrer-policy": "no-referrer-when-downgrade",
+    "server": "nginx",
+    "x-na": "0",
+    "x-nid": "Microsoft",
+    "x-page-cache": "BYPASS",
+    "x-rl": "1"
+  },
+  "parseError": "SyntaxError: Unexpected token '<', \"<html><bod\"... is not valid JSON",
+  "body": "<html><body><h1>503 Service Unavailable</h1>\nNo server is available to handle this request.\n</body></html>\n",
+  "transportError": null
+}
