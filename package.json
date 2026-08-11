@@ -1,0 +1,12 @@
+{
+  "name": "artlist-evidence-log",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "capture:wayback": "node research/capture_wayback.mjs"
+  },
+  "dependencies": {
+    "playwright": "1.55.0"
+  }
+}
