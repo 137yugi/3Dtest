@@ -1,6 +1,6 @@
 {
   "requestedUrl": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fartlist.io%2Fblog%2Fseedance-2-5-on-artlist-the-ai-video-model-moving-the-needle%2F&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&from=20260701&to=20260811&collapse=digest",
-  "checkedAt": "2026-08-11T07:54:34.981Z",
+  "checkedAt": "2026-08-11T08:01:02.024Z",
   "httpStatus": 503,
   "finalUrl": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fartlist.io%2Fblog%2Fseedance-2-5-on-artlist-the-ai-video-model-moving-the-needle%2F&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&from=20260701&to=20260811&collapse=digest",
   "responseHeaders": {
@@ -8,7 +8,7 @@
     "connection": "keep-alive",
     "content-length": "107",
     "content-type": "text/html",
-    "date": "Tue, 11 Aug 2026 07:54:34 GMT",
+    "date": "Tue, 11 Aug 2026 08:01:01 GMT",
     "permissions-policy": "interest-cohort=()",
     "referrer-policy": "no-referrer-when-downgrade",
     "server": "nginx",

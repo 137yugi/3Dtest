@@ -1,6 +1,6 @@
 {
   "requestedUrl": "https://archive.org/wayback/available?url=https%3A%2F%2Fartlist.io%2Fhelp-center%2Fprivacy-terms%2Fterms-of-use%2F&timestamp=20260701",
-  "checkedAt": "2026-08-11T07:56:12.230Z",
+  "checkedAt": "2026-08-11T08:02:33.119Z",
   "httpStatus": 200,
   "finalUrl": "https://archive.org/wayback/available?url=https%3A%2F%2Fartlist.io%2Fhelp-center%2Fprivacy-terms%2Fterms-of-use%2F&timestamp=20260701",
   "responseHeaders": {
@@ -8,12 +8,11 @@
     "access-control-allow-origin": "*",
     "cache-control": "max-age=21600",
     "connection": "keep-alive",
-    "content-length": "308",
-    "content-security-policy": "report-uri https://archive.org/services/csp-report; default-src *; img-src * data: blob:; object-src 'none'; media-src * blob:; connect-src * data:; style-src 'unsafe-inline' https://archive.org/ https://archive.org https://esm.archive.org/ https://esm.ext.archive.org/ https://offshoot.prod.archive.org/ https://av.archive.org/css/ https://av.dev.archive.org/css/ https://accounts.google.com/gsi/ https://synerg.adp.com/; script-src 'nonce-fadd9a22714e99413378cc77b3d15ddd' https://archive.org/includes/ https://archive.org/includes/ https://archive.org/components/ https://archive.org/components/ https://archive.org/v/ https://archive.org/v/ https://archive.org/upload/app/ https://archive.org/offshoot_assets/ https://archive.org/offshoot_assets/ https://esm.archive.org/ https://esm.ext.archive.org/ https://polyfill.archive.org/v3/polyfill.min.js https://offshoot.prod.archive.org/ https://av.archive.org/ https://av.dev.archive.org/ https://openlibrary.org/query.json https://emularity-engine.ux-b.archive.org/ https://emularity-config.ux-b.archive.org/ https://emularity-bios.ux-b.archive.org/ https://archive.org/services/emularity/ https://archive.org/services/emularity/ 'wasm-unsafe-eval' 'sha256-CoX53XgCdkM1zegYEEpMUeYIZnv663inNm8bQv2VRbM=' https://accounts.google.com/gsi/ https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/ https://workforcenow.adp.com/ https://synerg.adp.com/ https://apollo.archive.org",
+    "content-length": "120",
+    "content-security-policy": "report-uri https://archive.org/services/csp-report; default-src *; img-src * data: blob:; object-src 'none'; media-src * blob:; connect-src * data:; style-src 'unsafe-inline' https://archive.org/ https://archive.org https://esm.archive.org/ https://esm.ext.archive.org/ https://offshoot.prod.archive.org/ https://av.archive.org/css/ https://av.dev.archive.org/css/ https://accounts.google.com/gsi/ https://synerg.adp.com/; script-src 'nonce-aeea36e9ae0f274260acef8c826b31d8' https://archive.org/includes/ https://archive.org/includes/ https://archive.org/components/ https://archive.org/components/ https://archive.org/v/ https://archive.org/v/ https://archive.org/upload/app/ https://archive.org/offshoot_assets/ https://archive.org/offshoot_assets/ https://esm.archive.org/ https://esm.ext.archive.org/ https://polyfill.archive.org/v3/polyfill.min.js https://offshoot.prod.archive.org/ https://av.archive.org/ https://av.dev.archive.org/ https://openlibrary.org/query.json https://emularity-engine.ux-b.archive.org/ https://emularity-config.ux-b.archive.org/ https://emularity-bios.ux-b.archive.org/ https://archive.org/services/emularity/ https://archive.org/services/emularity/ 'wasm-unsafe-eval' 'sha256-CoX53XgCdkM1zegYEEpMUeYIZnv663inNm8bQv2VRbM=' https://accounts.google.com/gsi/ https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/ https://workforcenow.adp.com/ https://synerg.adp.com/ https://apollo.archive.org",
     "content-type": "application/json",
-    "date": "Tue, 11 Aug 2026 07:56:12 GMT",
-    "expires": "Tue, 11 Aug 2026 13:56:12 GMT",
-    "memento-location": "http://web.archive.org/web/20260626143131/https://artlist.io/help-center/privacy-terms/terms-of-use",
+    "date": "Tue, 11 Aug 2026 08:02:33 GMT",
+    "expires": "Tue, 11 Aug 2026 14:02:33 GMT",
     "onion-location": "https://archivep75mbjunhxc6x4j5mwjmomyxb573v42baldlqu56ruil2oiad.onion/wayback/available?url=https%3A%2F%2Fartlist.io%2Fhelp-center%2Fprivacy-terms%2Fterms-of-use%2F&timestamp=20260701",
     "permissions-policy": "interest-cohort=()",
     "referrer-policy": "no-referrer-when-downgrade, no-referrer-when-downgrade",
@@ -21,27 +20,20 @@
     "server-timing": "TR;dur=0,Tw;dur=0,Tc;dur=1, MISS",
     "set-cookie": "wb-api-SERVER=; Expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/",
     "strict-transport-security": "max-age=15724800",
-    "x-app-server": "nomad-api3",
-    "x-ip": "20.161.28.99",
+    "x-app-server": "nomad-api6",
+    "x-ip": "172.183.133.245",
     "x-location": "available",
     "x-na": "0",
     "x-nid": "Microsoft",
     "x-page-cache": "MISS",
     "x-rl": "1",
-    "x-tr": "353",
+    "x-tr": "5015",
     "x-ts": "200"
   },
   "parseError": null,
   "body": {
     "url": "https://artlist.io/help-center/privacy-terms/terms-of-use/",
-    "archived_snapshots": {
-      "closest": {
-        "status": "200",
-        "available": true,
-        "url": "http://web.archive.org/web/20260626143131/https://artlist.io/help-center/privacy-terms/terms-of-use",
-        "timestamp": "20260626143131"
-      }
-    },
+    "archived_snapshots": {},
     "timestamp": "20260701"
   },
   "transportError": null

@@ -1,22 +1,30 @@
 {
   "requestedUrl": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fartlist.io%2Fai%2Fmodels%2Fseedance-2-5&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&from=20260701&to=20260811&collapse=digest",
-  "checkedAt": "2026-08-11T07:54:06.736Z",
-  "httpStatus": 504,
+  "checkedAt": "2026-08-11T08:00:36.092Z",
+  "httpStatus": 200,
   "finalUrl": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fartlist.io%2Fai%2Fmodels%2Fseedance-2-5&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&from=20260701&to=20260811&collapse=digest",
   "responseHeaders": {
     "connection": "keep-alive",
-    "content-length": "160",
-    "content-type": "text/html",
-    "date": "Tue, 11 Aug 2026 07:54:06 GMT",
+    "content-encoding": "gzip",
+    "content-type": "application/json",
+    "date": "Tue, 11 Aug 2026 08:00:36 GMT",
     "permissions-policy": "interest-cohort=()",
     "referrer-policy": "no-referrer-when-downgrade",
     "server": "nginx",
+    "server-timing": "exclusion.robots;dur=0.100358, exclusion.robots.policy;dur=0.087466, esindex;dur=0.011228, TR;dur=0,Tw;dur=2195,Tc;dur=0, BYPASS",
+    "set-cookie": "wb-cdx-nomatch-SERVER=wwwb-app251; path=/",
+    "transfer-encoding": "chunked",
+    "x-app-server": "wwwb-app251-dc8",
+    "x-be": "wb_cdx_pygwb_nomatch",
+    "x-location": "cdx",
     "x-na": "0",
     "x-nid": "Microsoft",
     "x-page-cache": "BYPASS",
-    "x-rl": "1"
+    "x-rl": "1",
+    "x-tr": "38294",
+    "x-ts": "200"
   },
-  "parseError": "SyntaxError: Unexpected token '<', \"<html>\r\n<h\"... is not valid JSON",
-  "body": "<html>\r\n<head><title>504 Gateway Time-out</title></head>\r\n<body>\r\n<center><h1>504 Gateway Time-out</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+  "parseError": null,
+  "body": [],
   "transportError": null
 }

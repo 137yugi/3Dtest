@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-08-11T07:53:01.240Z",
+  "generatedAt": "2026-08-11T07:59:45.379Z",
   "repository": "137yugi/3Dtest",
-  "commit": "d0b11acaee41a9eab3168ae55e763de517a9255f",
+  "commit": "c7d98c445b314fae042bff217b7b0df867067ea5",
   "targets": [
     {
       "id": "seedance-model-page",
       "label": "Artlist Seedance 2.5 model page",
       "originalUrl": "https://artlist.io/ai/models/seedance-2-5",
-      "checkedAt": "2026-08-11T07:53:02.909Z",
+      "checkedAt": "2026-08-11T07:59:46.783Z",
       "availability": [
         {
           "date": "20260806",
@@ -67,8 +67,8 @@
       "cdx": {
         "url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fartlist.io%2Fai%2Fmodels%2Fseedance-2-5&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&from=20260701&to=20260811&collapse=digest",
         "file": "archive-results/api/seedance-model-page-cdx.json",
-        "httpStatus": 504,
-        "parseError": "SyntaxError: Unexpected token '<', \"<html>\r\n<h\"... is not valid JSON",
+        "httpStatus": 200,
+        "parseError": null,
         "transportError": null
       },
       "browserCaptures": [
@@ -76,93 +76,30 @@
           "url": "https://artlist.io/ai/models/seedance-2-5",
           "id": "seedance-model-page",
           "kind": "current-page",
-          "capturedAt": "2026-08-11T07:54:06.737Z",
+          "capturedAt": "2026-08-11T08:00:36.093Z",
           "success": true,
           "finalUrl": "https://artlist.io/ai/models/seedance-2-5",
-          "title": "Seedance 2.5, 30s AI video generator | Artlist AI",
+          "title": "Just a moment...",
           "screenshot": "archive-results/screenshots/seedance-model-page-current-page.png",
           "textFile": "archive-results/text/seedance-model-page-current-page.txt",
           "htmlFile": "archive-results/html/seedance-model-page-current-page.html",
-          "keywordScreenshots": [
-            {
-              "keyword": "included in Unlimited plans",
-              "file": "archive-results/screenshots/seedance-model-page-current-page-keyword-included-in-Unlimited-plans.png"
-            },
-            {
-              "keyword": "isn't part of the Unlimited plan",
-              "file": "archive-results/screenshots/seedance-model-page-current-page-keyword-isn-t-part-of-the-Unlimited-plan.png"
-            },
-            {
-              "keyword": "Unlimited",
-              "file": "archive-results/screenshots/seedance-model-page-current-page-keyword-Unlimited.png"
-            }
-          ],
+          "keywordScreenshots": [],
           "errors": [
             "console: Failed to load resource: the server responded with a status of 403 ()",
             "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: A bad HTTP response code (403) was received when fetching the script.",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: Failed to load resource: the server responded with a status of 403 ()"
+            "console: %c%d font-size:0;color:transparent NaN",
+            "console: %c%d font-size:0;color:transparent NaN"
           ],
-          "httpStatus": 200
+          "httpStatus": 403
         },
         {
           "url": "https://web.archive.org/web/*/https://artlist.io/ai/models/seedance-2-5",
           "id": "seedance-model-page",
           "kind": "wayback-calendar",
-          "capturedAt": "2026-08-11T07:54:15.189Z",
+          "capturedAt": "2026-08-11T08:00:41.513Z",
           "success": true,
-          "finalUrl": "https://archive.org/donate?origin=DonateBanner-20260801AugustDeploy-WBJulTestLargeDesktop-Desktop&referer=ctx%3Dwb%3Buid%3D97f05a9faf76c959733df36101edc1b7&dollarAmounts=%5B10%2C+14%2C+50%5D&amountLayout=multi-line&frequencyMode=checkbox&platform=wb&bannerTemplate=chevron&amt=14&contrib_type=one-time&coverFees=false&selectedTextColor=%23000000&selectedFillColor=%23F9BF3B&formTextColor=%23000000",
-          "title": "Internet Archive: Digital Library of Free & Borrowable Texts, Movies, Music & Wayback Machine",
+          "finalUrl": "https://archive.org/donate?origin=DonateBanner-20260801AugustDeploy-WBJulTestLargeDesktop-Desktop&referer=ctx%3Dwb%3Buid%3D00397a7fd27fec7d4d2c5b56b8c05f17&dollarAmounts=%5B10%2C+14%2C+50%5D&amountLayout=multi-line&frequencyMode=checkbox&platform=wb&bannerTemplate=chevron&amt=14&contrib_type=one-time&coverFees=false&selectedTextColor=%23000000&selectedFillColor=%23F9BF3B&formTextColor=%23000000",
+          "title": "Donate to the Internet Archive!",
           "screenshot": "archive-results/screenshots/seedance-model-page-wayback-calendar.png",
           "textFile": "archive-results/text/seedance-model-page-wayback-calendar.txt",
           "htmlFile": "archive-results/html/seedance-model-page-wayback-calendar.html",
@@ -177,7 +114,7 @@
       "id": "seedance-launch-blog",
       "label": "Artlist Seedance 2.5 launch blog",
       "originalUrl": "https://artlist.io/blog/seedance-2-5-on-artlist-the-ai-video-model-moving-the-needle/",
-      "checkedAt": "2026-08-11T07:54:24.320Z",
+      "checkedAt": "2026-08-11T08:00:50.446Z",
       "availability": [
         {
           "date": "20260806",
@@ -246,7 +183,7 @@
           "url": "https://artlist.io/blog/seedance-2-5-on-artlist-the-ai-video-model-moving-the-needle/",
           "id": "seedance-launch-blog",
           "kind": "current-page",
-          "capturedAt": "2026-08-11T07:54:34.982Z",
+          "capturedAt": "2026-08-11T08:01:02.024Z",
           "success": true,
           "finalUrl": "https://artlist.io/blog/seedance-2-5-on-artlist-the-ai-video-model-moving-the-needle/",
           "title": "Just a moment...",
@@ -256,18 +193,18 @@
           "keywordScreenshots": [],
           "errors": [
             "console: Failed to load resource: the server responded with a status of 403 ()",
-            "console: %c%d font-size:0;color:transparent NaN",
-            "console: %c%d font-size:0;color:transparent NaN"
+            "console: Failed to load resource: the server responded with a status of 403 ()",
+            "console: Failed to load resource: the server responded with a status of 403 ()"
           ],
-          "httpStatus": 403
+          "httpStatus": 200
         },
         {
           "url": "https://web.archive.org/web/*/https://artlist.io/blog/seedance-2-5-on-artlist-the-ai-video-model-moving-the-needle/",
           "id": "seedance-launch-blog",
           "kind": "wayback-calendar",
-          "capturedAt": "2026-08-11T07:54:40.212Z",
+          "capturedAt": "2026-08-11T08:01:07.463Z",
           "success": true,
-          "finalUrl": "https://archive.org/donate?origin=DonateBanner-20260801AugustDeploy-WBJulTestLargeDesktop-Desktop&referer=ctx%3Dwb%3Buid%3D1ef9f7db119e96a1eba77dfcb6e5f4aa&dollarAmounts=%5B10%2C+14%2C+50%5D&amountLayout=multi-line&frequencyMode=checkbox&platform=wb&bannerTemplate=chevron&amt=14&contrib_type=one-time&coverFees=false&selectedTextColor=%23000000&selectedFillColor=%23F9BF3B&formTextColor=%23000000",
+          "finalUrl": "https://archive.org/donate?origin=DonateBanner-20260801AugustDeploy-WBJulTestLargeDesktop-Desktop&referer=ctx%3Dwb%3Buid%3Dc0e12f3184966bedf6453841819d2374&dollarAmounts=%5B10%2C+14%2C+50%5D&amountLayout=multi-line&frequencyMode=checkbox&platform=wb&bannerTemplate=chevron&amt=14&contrib_type=one-time&coverFees=false&selectedTextColor=%23000000&selectedFillColor=%23F9BF3B&formTextColor=%23000000",
           "title": "Donate to the Internet Archive!",
           "screenshot": "archive-results/screenshots/seedance-launch-blog-wayback-calendar.png",
           "textFile": "archive-results/text/seedance-launch-blog-wayback-calendar.txt",
@@ -283,7 +220,7 @@
       "id": "seedance-help-article",
       "label": "Artlist Help Center Seedance 2.5 article",
       "originalUrl": "https://help.artlist.io/hc/en-us/articles/38194082501021-Seedance-2-5",
-      "checkedAt": "2026-08-11T07:54:49.335Z",
+      "checkedAt": "2026-08-11T08:01:16.343Z",
       "availability": [
         {
           "date": "20260806",
@@ -352,42 +289,29 @@
           "url": "https://help.artlist.io/hc/en-us/articles/38194082501021-Seedance-2-5",
           "id": "seedance-help-article",
           "kind": "current-page",
-          "capturedAt": "2026-08-11T07:55:05.661Z",
+          "capturedAt": "2026-08-11T08:01:47.594Z",
           "success": true,
           "finalUrl": "https://help.artlist.io/hc/en-us/articles/38194082501021-Seedance-2-5",
-          "title": "Seedance 2.5 – Artlist",
+          "title": "Just a moment...",
           "screenshot": "archive-results/screenshots/seedance-help-article-current-page.png",
           "textFile": "archive-results/text/seedance-help-article-current-page.txt",
           "htmlFile": "archive-results/html/seedance-help-article-current-page.html",
-          "keywordScreenshots": [
-            {
-              "keyword": "Reference-to-Video",
-              "file": "archive-results/screenshots/seedance-help-article-current-page-keyword-Reference-to-Video.png"
-            },
-            {
-              "keyword": "R2V",
-              "file": "archive-results/screenshots/seedance-help-article-current-page-keyword-R2V.png"
-            },
-            {
-              "keyword": "50 reference inputs",
-              "file": "archive-results/screenshots/seedance-help-article-current-page-keyword-50-reference-inputs.png"
-            },
-            {
-              "keyword": "credits",
-              "file": "archive-results/screenshots/seedance-help-article-current-page-keyword-credits.png"
-            }
+          "keywordScreenshots": [],
+          "errors": [
+            "console: Failed to load resource: the server responded with a status of 403 ()",
+            "console: %c%d font-size:0;color:transparent NaN",
+            "console: %c%d font-size:0;color:transparent NaN"
           ],
-          "errors": [],
-          "httpStatus": 200
+          "httpStatus": 403
         },
         {
           "url": "https://web.archive.org/web/*/https://help.artlist.io/hc/en-us/articles/38194082501021-Seedance-2-5",
           "id": "seedance-help-article",
           "kind": "wayback-calendar",
-          "capturedAt": "2026-08-11T07:55:13.853Z",
+          "capturedAt": "2026-08-11T08:01:52.856Z",
           "success": true,
-          "finalUrl": "https://archive.org/donate?origin=DonateBanner-20260801AugustDeploy-WBJulTestLargeDesktop-Desktop&referer=ctx%3Dwb%3Buid%3Df5d9f4be5ec75490e9374b4654002e4b&dollarAmounts=%5B10%2C+14%2C+50%5D&amountLayout=multi-line&frequencyMode=checkbox&platform=wb&bannerTemplate=chevron&amt=14&contrib_type=one-time&coverFees=false&selectedTextColor=%23000000&selectedFillColor=%23F9BF3B&formTextColor=%23000000",
-          "title": "Donate to the Internet Archive!",
+          "finalUrl": "https://archive.org/donate?origin=DonateBanner-20260801AugustDeploy-WBJulTestLargeDesktop-Desktop&referer=ctx%3Dwb%3Buid%3D63fb1d436df7ac435651051f2c7f9acf&dollarAmounts=%5B10%2C+14%2C+50%5D&amountLayout=multi-line&frequencyMode=checkbox&platform=wb&bannerTemplate=chevron&amt=14&contrib_type=one-time&coverFees=false&selectedTextColor=%23000000&selectedFillColor=%23F9BF3B&formTextColor=%23000000",
+          "title": "Internet Archive: Digital Library of Free & Borrowable Texts, Movies, Music & Wayback Machine",
           "screenshot": "archive-results/screenshots/seedance-help-article-wayback-calendar.png",
           "textFile": "archive-results/text/seedance-help-article-wayback-calendar.txt",
           "htmlFile": "archive-results/html/seedance-help-article-wayback-calendar.html",
@@ -402,7 +326,7 @@
       "id": "ai-suite-plans",
       "label": "Artlist Help Center AI Suite plans article",
       "originalUrl": "https://help.artlist.io/hc/en-us/articles/29558520864541-The-AI-Suite-plans-explained",
-      "checkedAt": "2026-08-11T07:55:23.020Z",
+      "checkedAt": "2026-08-11T08:02:01.759Z",
       "availability": [
         {
           "date": "20260806",
@@ -462,8 +386,8 @@
       "cdx": {
         "url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fhelp.artlist.io%2Fhc%2Fen-us%2Farticles%2F29558520864541-The-AI-Suite-plans-explained&output=json&fl=timestamp,original,statuscode,mimetype,digest&filter=statuscode:200&from=20260701&to=20260811&collapse=digest",
         "file": "archive-results/api/ai-suite-plans-cdx.json",
-        "httpStatus": 200,
-        "parseError": null,
+        "httpStatus": 503,
+        "parseError": "SyntaxError: Unexpected token '<', \"<html><bod\"... is not valid JSON",
         "transportError": null
       },
       "browserCaptures": [
@@ -471,7 +395,7 @@
           "url": "https://help.artlist.io/hc/en-us/articles/29558520864541-The-AI-Suite-plans-explained",
           "id": "ai-suite-plans",
           "kind": "current-page",
-          "capturedAt": "2026-08-11T07:55:53.719Z",
+          "capturedAt": "2026-08-11T08:02:09.971Z",
           "success": true,
           "finalUrl": "https://help.artlist.io/hc/en-us/articles/29558520864541-The-AI-Suite-plans-explained",
           "title": "The AI Suite plans explained – Artlist",
@@ -503,9 +427,9 @@
           "url": "https://web.archive.org/web/*/https://help.artlist.io/hc/en-us/articles/29558520864541-The-AI-Suite-plans-explained",
           "id": "ai-suite-plans",
           "kind": "wayback-calendar",
-          "capturedAt": "2026-08-11T07:56:01.934Z",
+          "capturedAt": "2026-08-11T08:02:18.279Z",
           "success": true,
-          "finalUrl": "https://archive.org/donate?origin=DonateBanner-20260801AugustDeploy-WBJulTestLargeDesktop-Desktop&referer=ctx%3Dwb%3Buid%3D692356ab2212e990821d6d64dc281d4d&dollarAmounts=%5B10%2C+14%2C+50%5D&amountLayout=multi-line&frequencyMode=checkbox&platform=wb&bannerTemplate=chevron&amt=14&contrib_type=one-time&coverFees=false&selectedTextColor=%23000000&selectedFillColor=%23F9BF3B&formTextColor=%23000000",
+          "finalUrl": "https://archive.org/donate?origin=DonateBanner-20260801AugustDeploy-WBJulTestLargeDesktop-Desktop&referer=ctx%3Dwb%3Buid%3D89bd105ff6383224bead2442731ecfcb&dollarAmounts=%5B10%2C+14%2C+50%5D&amountLayout=multi-line&frequencyMode=checkbox&platform=wb&bannerTemplate=chevron&amt=14&contrib_type=one-time&coverFees=false&selectedTextColor=%23000000&selectedFillColor=%23F9BF3B&formTextColor=%23000000",
           "title": "Donate to the Internet Archive!",
           "screenshot": "archive-results/screenshots/ai-suite-plans-wayback-calendar.png",
           "textFile": "archive-results/text/ai-suite-plans-wayback-calendar.txt",
@@ -521,19 +445,14 @@
       "id": "terms-of-use",
       "label": "Artlist Terms of Use",
       "originalUrl": "https://artlist.io/help-center/privacy-terms/terms-of-use/",
-      "checkedAt": "2026-08-11T07:56:10.935Z",
+      "checkedAt": "2026-08-11T08:02:27.183Z",
       "availability": [
         {
           "date": "20260701",
           "apiUrl": "https://archive.org/wayback/available?url=https%3A%2F%2Fartlist.io%2Fhelp-center%2Fprivacy-terms%2Fterms-of-use%2F&timestamp=20260701",
           "apiFile": "archive-results/api/terms-of-use-availability-20260701.json",
           "httpStatus": 200,
-          "closest": {
-            "status": "200",
-            "available": true,
-            "url": "http://web.archive.org/web/20260626143131/https://artlist.io/help-center/privacy-terms/terms-of-use",
-            "timestamp": "20260626143131"
-          },
+          "closest": null,
           "parseError": null,
           "transportError": null
         },
@@ -634,7 +553,7 @@
           "url": "https://artlist.io/help-center/privacy-terms/terms-of-use/",
           "id": "terms-of-use",
           "kind": "current-page",
-          "capturedAt": "2026-08-11T07:56:33.475Z",
+          "capturedAt": "2026-08-11T08:03:06.503Z",
           "success": true,
           "finalUrl": "https://artlist.io/help-center/privacy-terms/terms-of-use/",
           "title": "Terms of Use | Artlist",
@@ -673,7 +592,7 @@
           "url": "https://web.archive.org/web/*/https://artlist.io/help-center/privacy-terms/terms-of-use/",
           "id": "terms-of-use",
           "kind": "wayback-calendar",
-          "capturedAt": "2026-08-11T07:56:42.510Z",
+          "capturedAt": "2026-08-11T08:03:15.397Z",
           "success": false,
           "finalUrl": "chrome-error://chromewebdata/",
           "title": "",
@@ -689,7 +608,7 @@
           "url": "https://web.archive.org/web/20260626143131/https://artlist.io/help-center/privacy-terms/terms-of-use",
           "id": "terms-of-use",
           "kind": "wayback-20260626143131",
-          "capturedAt": "2026-08-11T07:56:58.011Z",
+          "capturedAt": "2026-08-11T08:03:31.471Z",
           "success": false,
           "finalUrl": "chrome-error://chromewebdata/",
           "title": "",
@@ -707,7 +626,7 @@
           "timestamp": "20260626143131",
           "url": "https://web.archive.org/web/20260626143131/https://artlist.io/help-center/privacy-terms/terms-of-use",
           "status": "200",
-          "sourceDate": "20260701"
+          "sourceDate": "20260806"
         }
       ]
     }
