@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07100d">
+<title>ABIRU — 読み込み中</title>
+<style>
+:root{color-scheme:dark;--bg:#07100d;--panel:#0d1915;--line:#243a31;--text:#f4f0e6;--muted:#aab9b2;--mint:#8bf0bc;--gold:#e4c279}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:radial-gradient(circle at 50% 20%,#173326 0,#07100d 48%,#030806 100%);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text)}
+body{display:grid;place-items:center;padding:max(24px,env(safe-area-inset-top)) 20px max(24px,env(safe-area-inset-bottom))}
+main{width:min(620px,100%);padding:32px 24px;border:1px solid var(--line);border-radius:26px;background:linear-gradient(180deg,rgba(17,34,27,.94),rgba(7,15,12,.94));box-shadow:0 24px 90px rgba(0,0,0,.48)}
+.logo{font-size:clamp(38px,12vw,72px);font-weight:900;letter-spacing:-.07em;line-height:.9}.logo span{color:var(--mint)}
+.kicker{margin-top:14px;font-size:11px;letter-spacing:.18em;color:var(--gold);font-weight:800}.title{margin:24px 0 8px;font-size:clamp(24px,7vw,38px);line-height:1.18;letter-spacing:-.035em}.desc{margin:0;color:var(--muted);font-size:15px;line-height:1.8}
+.progress{height:8px;margin:28px 0 12px;border-radius:99px;background:#14241e;overflow:hidden;border:1px solid #294138}.bar{height:100%;width:4%;border-radius:inherit;background:linear-gradient(90deg,var(--mint),var(--gold));transition:width .25s ease}.status{display:flex;justify-content:space-between;gap:14px;font-size:12px;color:var(--muted)}
+.error{display:none;margin-top:22px;padding:18px;border:1px solid #7e463f;border-radius:16px;background:#281311}.error strong{display:block;color:#ffb6a9;margin-bottom:8px}.error pre{white-space:pre-wrap;word-break:break-word;margin:8px 0 0;color:#e8c8c0;font-size:11px;line-height:1.5}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.btn{appearance:none;border:1px solid #47675a;background:#14271f;color:#fff;padding:11px 15px;border-radius:12px;font-weight:700;font-size:14px;text-decoration:none}.btn.primary{background:var(--mint);color:#062014;border-color:var(--mint)}
+.note{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);color:#7f938a;font-size:11px;line-height:1.6}
+</style>
+</head>
+<body>
+<main>
+  <div class="logo">ABI<span>RU</span></div>
+  <div class="kicker">VERCEL PUBLIC · STABLE LOADER v5.1</div>
+  <h1 class="title">完全な事業設計を展開しています。</h1>
+  <p class="desc">五つの検証済みデータを順番に取得し、端末内で復元します。ページ本文・画像・フォントは外部サービスへ送信しません。</p>
+  <div class="progress"><div class="bar" id="bar"></div></div>
+  <div class="status"><span id="status">準備中</span><span id="pct">4%</span></div>
+  <section class="error" id="error">
+    <strong>読み込みを完了できませんでした。</strong>
+    <div>今回は原因を特定できるよう、失敗した工程を下に表示します。</div>
+    <pre id="detail"></pre>
+    <div class="actions"><button class="btn primary" onclick="location.reload()">再読み込み</button><button class="btn" id="copy">エラーをコピー</button></div>
+  </section>
+  <div class="note">旧版の <code>atob</code> 一括変換は廃止済みです。各データ片を検証し、純JavaScriptで復号してから展開します。</div>
+</main>
+<script>
+(() => {
+  'use strict';
+  const VERSION='5.1.0';
+  const BASE='https://raw.githubusercontent.com/137yugi/3Dtest/d6744e004973f106c993a9651e5b94f50fb2eef2/abiru-v5-fix/payload/';
+  const urls=['c0.txt','c1.txt','c2.txt','c3.txt','c4.txt'].map(x=>BASE+x);
+  const expected=[10000,10000,10000,10000,9052];
+  const alphabet='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+  const table=new Int16Array(128); table.fill(-1); for(let i=0;i<alphabet.length;i++) table[alphabet.charCodeAt(i)]=i;
+  const bar=document.getElementById('bar'), status=document.getElementById('status'), pct=document.getElementById('pct');
+  const errBox=document.getElementById('error'), detail=document.getElementById('detail');
+  let lastError='';
+  function progress(n,msg){bar.style.width=n+'%';pct.textContent=n+'%';status.textContent=msg;}
+  function decodeBase64(input,label){
+    const s=input.replace(/\s+/g,'');
+    if(s.length%4!==0) throw new Error(label+': 文字数が4の倍数ではありません ('+s.length+')');
+    if(!/^[A-Za-z0-9+/]*={0,2}$/.test(s)) throw new Error(label+': Base64以外の文字を検出しました');
+    let pad=0; if(s.endsWith('==')) pad=2; else if(s.endsWith('=')) pad=1;
+    const out=new Uint8Array((s.length/4)*3-pad); let o=0;
+    for(let i=0;i<s.length;i+=4){
+      const a=table[s.charCodeAt(i)], b=table[s.charCodeAt(i+1)];
+      const c=s[i+2]==='='?0:table[s.charCodeAt(i+2)], d=s[i+3]==='='?0:table[s.charCodeAt(i+3)];
+      if(a<0||b<0||c<0||d<0) throw new Error(label+': 復号できない文字を検出しました');
+      const n=(a<<18)|(b<<12)|(c<<6)|d;
+      if(o<out.length) out[o++]=(n>>16)&255;
+      if(o<out.length) out[o++]=(n>>8)&255;
+      if(o<out.length) out[o++]=n&255;
+    }
+    return out;
+  }
+  function concat(chunks){const len=chunks.reduce((n,c)=>n+c.length,0), out=new Uint8Array(len);let p=0;for(const c of chunks){out.set(c,p);p+=c.length;}return out;}
+  async function decompress(bytes){
+    if(typeof DecompressionStream!=='function') throw new Error('このブラウザは gzip 展開機能に対応していません。Safari / Chromeを最新版へ更新してください。');
+    const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
+    return await new Response(stream).text();
+  }
+  async function run(){
+    try{
+      const binary=[];
+      for(let i=0;i<urls.length;i++){
+        progress(8+i*12,'データ '+(i+1)+' / '+urls.length+' を取得');
+        const r=await fetch(urls[i]+'?loader='+VERSION,{cache:'no-store',mode:'cors'});
+        if(!r.ok) throw new Error('データ '+(i+1)+' の取得に失敗しました: HTTP '+r.status);
+        const raw=await r.text();
+        const clean=raw.replace(/\s+/g,'');
+        if(clean.length!==expected[i]) throw new Error('データ '+(i+1)+' の長さが不正です: '+clean.length+' / expected '+expected[i]);
+        if(/^\s*</.test(raw)) throw new Error('データ '+(i+1)+' の代わりにHTMLが返されました');
+        binary.push(decodeBase64(clean,'データ '+(i+1)));
+      }
+      progress(72,'圧縮データを検証');
+      const gz=concat(binary);
+      if(gz[0]!==0x1f||gz[1]!==0x8b) throw new Error('gzip識別子が一致しません');
+      progress(82,'完全版HTMLを復元');
+      const html=await decompress(gz);
+      if(html.length!==97587) throw new Error('復元後の文字数が不正です: '+html.length+' / expected 97587');
+      if(!html.includes('<title>ABIRU — Agent-native First-party Intelligence Exchange</title>')) throw new Error('ABIRU本文の識別情報が見つかりません');
+      if(!html.includes('Strategy visualization · v5.0 · 2026-08-18')||!html.includes('</html>')) throw new Error('ABIRU本文が途中で欠落しています');
+      progress(100,'展開完了');
+      await new Promise(r=>setTimeout(r,120));
+      document.open(); document.write(html); document.close();
+    }catch(e){
+      lastError='ABIRU loader '+VERSION+'\n'+(e&&e.stack?e.stack:String(e))+'\nURL: '+location.href+'\nUA: '+navigator.userAgent;
+      detail.textContent=lastError; errBox.style.display='block'; progress(100,'停止');
+      console.error(e);
+    }
+  }
+  document.getElementById('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(lastError);status.textContent='エラーをコピーしました';}catch(_){detail.select?.();}});
+  run();
+})();
+</script>
+</body>
+</html>
