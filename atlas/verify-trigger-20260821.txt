@@ -1,0 +1,1 @@
+Trigger the one-shot GitHub Pages deployment and real-browser verification workflow.
