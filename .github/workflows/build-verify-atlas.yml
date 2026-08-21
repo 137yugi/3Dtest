@@ -1,93 +1,91 @@
-name: Build and verify Atlas live
+name: Build, deploy, and verify Atlas live
 
 on:
-  push:
-    branches: [master]
-    paths:
-      - '.github/workflows/build-verify-atlas.yml'
+  issues:
+    types: [opened]
   workflow_dispatch:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
-  group: atlas-live-verification
+  group: pages
   cancel-in-progress: false
 
 jobs:
-  build-and-verify:
+  build-deploy-verify:
+    if: github.event_name == 'workflow_dispatch' || startsWith(github.event.issue.title, '[atlas-verify]')
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
-      - name: Checkout
+      - name: Checkout master
         uses: actions/checkout@v4
         with:
+          ref: master
           fetch-depth: 0
 
-      - name: Reconstruct the single-file Atlas
+      - name: Reconstruct the production single-file Atlas
         shell: bash
         run: |
           set -euo pipefail
           cat atlas/parts/p*.txt > atlas/index.html
           test -s atlas/index.html
+          test "$(wc -c < atlas/index.html)" -gt 300000
           grep -q 'AI × HUMAN INTERFACE ATLAS 300' atlas/index.html
           grep -q 'Miro' atlas/index.html
+          grep -q 'tldraw' atlas/index.html
 
-      - name: Publish reconstructed Atlas to master
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Upload the exact production artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Install Chrome
+        id: chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Open the public URL in Chrome and verify the rendered UI
         shell: bash
+        env:
+          CHROME: ${{ steps.chrome.outputs.chrome-path }}
+          PAGE_ROOT: ${{ steps.deployment.outputs.page_url }}
         run: |
           set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add atlas/index.html
-          if ! git diff --cached --quiet; then
-            git commit -m 'Build Atlas as a single-file page'
-            git push origin HEAD:master
-          fi
-
-      - name: Wait for GitHub Pages
-        id: wait
-        shell: bash
-        run: |
-          set -euo pipefail
-          URL='https://137yugi.github.io/3Dtest/atlas/'
+          mkdir -p atlas/verification
+          base="${PAGE_ROOT%/}/atlas/"
           ok=0
-          for attempt in $(seq 1 36); do
+
+          for attempt in $(seq 1 24); do
             nonce="${GITHUB_RUN_ID}-${attempt}-$(date +%s)"
-            code=$(curl -L -sS --max-time 30 -o /tmp/atlas-entry.html -w '%{http_code}' "${URL}?v=${nonce}" || true)
+            target="${base}?v=${nonce}"
+            code=$(curl -L -sS --max-time 30 -o /tmp/atlas-entry.html -w '%{http_code}' "$target" || true)
             bytes=$(wc -c </tmp/atlas-entry.html 2>/dev/null || echo 0)
-            echo "attempt=${attempt} code=${code} bytes=${bytes}"
+            echo "attempt=${attempt} code=${code} bytes=${bytes} target=${target}"
             if [ "$code" = '200' ] && grep -q 'AI × HUMAN INTERFACE ATLAS 300' /tmp/atlas-entry.html; then
               ok=1
               break
             fi
-            sleep 10
+            sleep 5
           done
           test "$ok" = '1'
-          echo "url=$URL" >> "$GITHUB_OUTPUT"
 
-      - name: Locate Chrome
-        id: chrome
-        shell: bash
-        run: |
-          set -euo pipefail
-          CHROME=$(command -v google-chrome-stable || command -v google-chrome || command -v chromium || command -v chromium-browser || true)
-          if [ -z "$CHROME" ]; then
-            echo 'Chrome was not found on the runner.' >&2
-            exit 1
-          fi
-          "$CHROME" --version
-          echo "path=$CHROME" >> "$GITHUB_OUTPUT"
+          nonce="${GITHUB_RUN_ID}-chrome-$(date +%s)"
+          target="${base}?v=${nonce}"
 
-      - name: Render the public URL in a real browser
-        shell: bash
-        env:
-          CHROME: ${{ steps.chrome.outputs.path }}
-          URL: ${{ steps.wait.outputs.url }}
-        run: |
-          set -euo pipefail
-          mkdir -p atlas/verification
-          nonce="${GITHUB_RUN_ID}-browser-$(date +%s)"
-          target="${URL}?v=${nonce}"
           "$CHROME" \
             --headless=new \
             --no-sandbox \
@@ -97,6 +95,7 @@ jobs:
             --virtual-time-budget=25000 \
             --dump-dom \
             "$target" > atlas/verification/live-dom.html
+
           "$CHROME" \
             --headless=new \
             --no-sandbox \
@@ -110,40 +109,46 @@ jobs:
           grep -q 'AI × HUMAN INTERFACE ATLAS 300' atlas/verification/live-dom.html
           grep -q 'Miro' atlas/verification/live-dom.html
           grep -q 'tldraw' atlas/verification/live-dom.html
-          grep -q '300' atlas/verification/live-dom.html
+          grep -q '全300件' atlas/verification/live-dom.html
 
+          export VERIFIED_URL="$base"
           python - <<'PY'
           from pathlib import Path
-          import json, re, os, datetime
+          import datetime, json, os, re
+
           dom = Path('atlas/verification/live-dom.html').read_text(errors='replace')
           png = Path('atlas/verification/live.png')
           result = {
               'verified': True,
-              'url': 'https://137yugi.github.io/3Dtest/atlas/',
+              'url': os.environ['VERIFIED_URL'],
               'verified_at_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
               'workflow_run_id': os.environ.get('GITHUB_RUN_ID'),
-              'commit_sha': os.environ.get('GITHUB_SHA'),
+              'source_commit_sha': os.environ.get('GITHUB_SHA'),
               'title_present': 'AI × HUMAN INTERFACE ATLAS 300' in dom,
+              'all_300_present': '全300件' in dom,
               'miro_present': 'Miro' in dom,
               'tldraw_present': 'tldraw' in dom,
+              'search_ui_present': '検索' in dom,
               'tool_card_mentions': len(re.findall(r'tool-card', dom)),
               'dom_bytes': len(dom.encode()),
               'screenshot_bytes': png.stat().st_size,
           }
-          Path('atlas/verification/live.json').write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n')
+          Path('atlas/verification/live.json').write_text(
+              json.dumps(result, ensure_ascii=False, indent=2) + '\n'
+          )
           print(json.dumps(result, ensure_ascii=False, indent=2))
           PY
 
-      - name: Commit browser evidence
+      - name: Persist the exact page and browser evidence
         shell: bash
         run: |
           set -euo pipefail
           rm -f atlas/verification/live-dom.html
-          git pull --rebase origin master
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add atlas/verification/live.json atlas/verification/live.png
+          git add atlas/index.html atlas/verification/live.json atlas/verification/live.png
           if ! git diff --cached --quiet; then
-            git commit -m 'Add live browser verification for Atlas'
+            git commit -m 'Publish and browser-verify Atlas live'
+            git pull --rebase origin master
             git push origin HEAD:master
           fi
