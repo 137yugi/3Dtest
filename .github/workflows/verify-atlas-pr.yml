@@ -1,0 +1,122 @@
+name: Probe Atlas public URL in Chrome
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    if: startsWith(github.event.pull_request.title, '[atlas-verify]')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout trusted master
+        uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: Install Chrome
+        id: chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Probe and render
+        id: probe
+        continue-on-error: true
+        shell: bash
+        env:
+          CHROME: ${{ steps.chrome.outputs.chrome-path }}
+        run: |
+          set +e
+          mkdir -p probe-output
+          URL='https://137yugi.github.io/3Dtest/atlas/'
+          code='000'
+          for attempt in $(seq 1 12); do
+            nonce="${GITHUB_RUN_ID}-${attempt}-$(date +%s)"
+            code=$(curl -L -sS --max-time 30 -o probe-output/entry.html -w '%{http_code}' "${URL}?v=${nonce}" || true)
+            echo "attempt=${attempt} status=${code} bytes=$(wc -c < probe-output/entry.html 2>/dev/null || echo 0)"
+            [ "$code" = '200' ] && break
+            sleep 5
+          done
+
+          "$CHROME" \
+            --headless=new \
+            --no-sandbox \
+            --disable-gpu \
+            --hide-scrollbars \
+            --window-size=1440,1000 \
+            --virtual-time-budget=25000 \
+            --dump-dom \
+            "${URL}?v=${GITHUB_RUN_ID}-dom" > probe-output/dom.html 2>probe-output/chrome-dom.stderr
+          dom_exit=$?
+
+          "$CHROME" \
+            --headless=new \
+            --no-sandbox \
+            --disable-gpu \
+            --hide-scrollbars \
+            --window-size=1440,1000 \
+            --virtual-time-budget=25000 \
+            --screenshot=probe-output/screenshot.png \
+            "${URL}?v=${GITHUB_RUN_ID}-shot" 2>probe-output/chrome-shot.stderr
+          shot_exit=$?
+
+          export STATUS_CODE="$code" DOM_EXIT="$dom_exit" SHOT_EXIT="$shot_exit" VERIFIED_URL="$URL"
+          python - <<'PY'
+          from pathlib import Path
+          import json, os, re
+          entry = Path('probe-output/entry.html').read_text(errors='replace') if Path('probe-output/entry.html').exists() else ''
+          dom = Path('probe-output/dom.html').read_text(errors='replace') if Path('probe-output/dom.html').exists() else ''
+          png = Path('probe-output/screenshot.png')
+          result = {
+            'url': os.environ['VERIFIED_URL'],
+            'http_status': os.environ['STATUS_CODE'],
+            'entry_bytes': len(entry.encode()),
+            'dom_exit': int(os.environ['DOM_EXIT']),
+            'screenshot_exit': int(os.environ['SHOT_EXIT']),
+            'dom_bytes': len(dom.encode()),
+            'screenshot_bytes': png.stat().st_size if png.exists() else 0,
+            'title_present': 'AI × HUMAN INTERFACE ATLAS 300' in dom,
+            'all_300_present': '全300件' in dom,
+            'miro_present': 'Miro' in dom,
+            'tldraw_present': 'tldraw' in dom,
+            'search_ui_present': '検索' in dom,
+            'tool_card_mentions': len(re.findall(r'tool-card', dom)),
+          }
+          result['verified'] = all([
+            result['http_status'] == '200',
+            result['dom_exit'] == 0,
+            result['screenshot_exit'] == 0,
+            result['title_present'],
+            result['all_300_present'],
+            result['miro_present'],
+            result['tldraw_present'],
+            result['search_ui_present'],
+            result['screenshot_bytes'] > 10000,
+          ])
+          Path('probe-output/result.json').write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n')
+          print(json.dumps(result, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Upload probe evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: atlas-public-probe-${{ github.run_id }}
+          path: probe-output/
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Require a fully rendered public site
+        if: always()
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          result = json.load(open('probe-output/result.json'))
+          if not result.get('verified'):
+              raise SystemExit('Public Atlas verification failed: ' + json.dumps(result, ensure_ascii=False))
+          print('Public Atlas verification passed:', json.dumps(result, ensure_ascii=False))
+          PY
