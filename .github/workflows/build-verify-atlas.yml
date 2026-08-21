@@ -3,8 +3,8 @@ name: Build, deploy, and verify Atlas live
 on:
   issues:
     types: [opened]
-  pull_request:
-    types: [opened]
+  pull_request_target:
+    types: [opened, synchronize, reopened]
   workflow_dispatch:
 
 permissions:
@@ -21,14 +21,14 @@ jobs:
     if: >-
       github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'issues' && startsWith(github.event.issue.title, '[atlas-verify]')) ||
-      (github.event_name == 'pull_request' && startsWith(github.event.pull_request.title, '[atlas-verify]'))
+      (github.event_name == 'pull_request_target' && startsWith(github.event.pull_request.title, '[atlas-verify]'))
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Checkout master
+      - name: Checkout trusted master
         uses: actions/checkout@v4
         with:
           ref: master
