@@ -3,6 +3,8 @@ name: Build, deploy, and verify Atlas live
 on:
   issues:
     types: [opened]
+  pull_request:
+    types: [opened]
   workflow_dispatch:
 
 permissions:
@@ -16,7 +18,10 @@ concurrency:
 
 jobs:
   build-deploy-verify:
-    if: github.event_name == 'workflow_dispatch' || startsWith(github.event.issue.title, '[atlas-verify]')
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'issues' && startsWith(github.event.issue.title, '[atlas-verify]')) ||
+      (github.event_name == 'pull_request' && startsWith(github.event.pull_request.title, '[atlas-verify]'))
     runs-on: ubuntu-latest
     environment:
       name: github-pages
